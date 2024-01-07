@@ -41,9 +41,6 @@ p {
 }
 
 button {
-    flex-grow: 0;
-    min-height: 3rem;
-    font-size: 1.2rem;
     padding: 10px;
     margin-top: 20px;
     background-color: var(--primary);
