@@ -1,9 +1,11 @@
+/* Define o comportamento padrão para todos os elementos */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+/* Define as variáveis de cor utilizadas no documento */
 :root {
     --primary: #111926;
     --white: #fff;
@@ -11,6 +13,7 @@
     --gray: #D3D3D3;
 }
 
+/* Estilos gerais para o corpo do documento */
 body {
     font-family: 'Work Sans', sans-serif;
     background-color: var(--background);
@@ -21,6 +24,7 @@ body {
     padding: 1rem;
 }
 
+/* Estilos para a área de dropzone */
 .dropzone-box {
     border-radius: 2rem;
     padding: 2rem;
@@ -33,11 +37,13 @@ body {
     background-color: var(--white);
 }
 
+/* Estilos para o título da dropzone */
 .dropzone-box h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
+/* Estilos para a área de dropzone */
 .dropzone-area {
     padding: 1rem;
     position: relative;
@@ -54,6 +60,7 @@ body {
     cursor: pointer;
 }
 
+/* Estilos para o input de tipo file dentro da área de dropzone */
 .dropzone-area [type="file"] {
     cursor: pointer;
     position: absolute;
@@ -64,6 +71,7 @@ body {
     left: 0;
 }
 
+/* Estilos para o ícone de upload na área de dropzone */
 .dropzone-area .file-upload-icon svg {
     height: 5rem;
     width: 5rem;
@@ -71,11 +79,14 @@ body {
     stroke: var(--primary);
 }
 
+/* Estilos para a área de dropzone quando estiver em foco */
 .dropzone--over {
     border-style: solid;
     background-color: var(--background);
 }
 
+/* Estilos para as ações da dropzone */
+/* Estilos para o container das ações da dropzone */
 .dropzone-actions {
     display: flex;
     justify-content: space-between;
@@ -86,6 +97,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Estilos para os botões dentro das ações da dropzone */
 .dropzone-actions button {
     flex-grow: 1;
     min-height: 3rem;
@@ -141,10 +153,12 @@ body {
     z-index: 1000; /* Defina um valor alto para garantir que o alerta esteja sobre outros elementos */
 }
 
+/* Estilos para o alerta de erro */
 .custom-alert.error {
     background-color: #f44336;
 }
 
+/* Estilos para o botão de fechar no alerta */
 .close-button {
     cursor: pointer;
     float: right;
@@ -152,6 +166,7 @@ body {
 }
 
 /* Estilo para o input de nome do aluno */
+/* Estilos para o container do input de nome do aluno */
 .student-name {
     margin-top: 1rem;
 }
@@ -162,6 +177,7 @@ body {
     color: var(--primary);
 }
 
+/* Estilos para a label do input de nome do aluno */
 .student-name input {
     width: 100%;
     padding: 0.5rem;
@@ -175,6 +191,7 @@ body {
 }
 
 /* Adicione este trecho se desejar que o input de nome tenha o mesmo estilo que o da dropzone-area */
+ /* Estilos para o input de nome do aluno */
 .student-name input[type="file"] {
     cursor: pointer;
     position: absolute;
