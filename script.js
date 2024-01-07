@@ -1,85 +1,71 @@
+// Obtém a primeira instância da classe "dropzone-box"
 const dropZoneBox = document.getElementsByClassName("dropzone-box")[0];
 
+// Seleciona todos os elementos de input com o tipo "file" dentro da classe "dropzone-area"
 const inputFiles = document.querySelectorAll(".dropzone-area input[type='file']");
 
+// Seleciona o primeiro elemento de input do tipo "file"
 const inputElement = inputFiles[0];
 
+// Encontra o elemento pai mais próximo com a classe "dropzone-area"
 const dropZoneElement = inputElement.closest(".dropzone-area");
 
-inputElement.addEventListener("change",
-(e) => {
-    if (inputElement.files.length){
+// Adiciona um ouvinte de evento para o evento de mudança no input do tipo "file"
+inputElement.addEventListener("change", (e) => {
+    if (inputElement.files.length) {
+        // Atualiza a lista de arquivos na área de dropzone
         updateDropzoneFileList(dropZoneElement, inputElement.files[0]);
     }
 });
 
-dropZoneElement.addEventListener("dragover",
-(e) => {
+// Adiciona um ouvinte de evento para o evento de arrastar sobre a área de dropzone
+dropZoneElement.addEventListener("dragover", (e) => {
     e.preventDefault();
+    // Adiciona uma classe para indicar que o cursor está sobre a área de dropzone
     dropZoneElement.classList.add("dropzone--over");
 });
 
-["dragleave", dragend].forEach((type) => {
-    dropZoneElement.addEventListener(type,
-        (e) => {
-            dropZoneElement.classList.remove("dropzone--over");
-        });
+// Adiciona ouvintes de evento para os eventos de "dragleave" e "dragend"
+["dragleave", "dragend"].forEach((type) => {
+    dropZoneElement.addEventListener(type, (e) => {
+        // Remove a classe que indica que o cursor não está mais sobre a área de dropzone
+        dropZoneElement.classList.remove("dropzone--over");
+    });
 });
 
-dropZoneElement.addEventListener("drop",
-(e) => {
+// Adiciona um ouvinte de evento para o evento de soltar (drop) na área de dropzone
+dropZoneElement.addEventListener("drop", (e) => {
     e.preventDefault();
-    if(e.dataTransfer.files.length){
+    if (e.dataTransfer.files.length) {
+        // Define os arquivos da transferência de dados como os arquivos do input do tipo "file"
         inputElement.files = e.dataTransfer.files;
+        // Atualiza a lista de arquivos na área de dropzone
         updateDropzoneFileList(dropZoneElement, e.dataTransfer.files[0]);
     }
-
+    // Remove a classe que indica que o cursor não está mais sobre a área de dropzone
     dropZoneElement.classList.remove("dropzone--over");
-
 });
 
+// Função para atualizar a lista de arquivos na área de dropzone
 const updateDropzoneFileList = (dropZoneElement, file) => {
+    // Obtém o elemento dentro da área de dropzone que exibe a mensagem sobre os arquivos
     let dropzoneFileMessage = dropZoneElement.querySelector(".message");
-    if (files.length) {
-        // Exibe o nome do primeiro arquivo e a contagem total de arquivos
-        dropzoneFileMessage.innerHTML = `${files[0].name} e mais ${files.length - 1} arquivo(s) selecionado(s)`;
-    } else {
-        dropzoneFileMessage.innerHTML = "Nenhum arquivo selecionado";
-    }
+
+    // Atualiza a mensagem para incluir o nome do arquivo e o tamanho em bytes
+    dropzoneFileMessage.innerHTML = `${file.name}, ${file.size} bytes`;
 };
 
-dropZoneBox.addEventListener("reset",
-(e) => {
+// Adiciona um ouvinte de evento para o evento de reset no formulário
+dropZoneBox.addEventListener("reset", (e) => {
+    // Limpa as mensagens sobre os arquivos na área de dropzone
     let dropzoneFileMessage = dropZoneElement.querySelector(".message");
     dropzoneFileMessage.innerHTML = "Nenhum arquivo selecionado";
 });
 
-dropZoneBox.addEventListener("submit",
-(e) => {
+// Adiciona um ouvinte de evento para o evento de submit no formulário
+dropZoneBox.addEventListener("submit", (e) => {
     e.preventDefault();
+    // Exibe no console o primeiro arquivo selecionado
     const myFiled = document.getElementById("upload-file");
     console.log(myFiled.files[0]);
-});
-
-$(document).ready(function() {
-    $(".dropzone-box").submit(function(e) {
-        e.preventDefault();
-
-        var formData = new FormData(this);
-
-        $.ajax({
-            type: "POST",
-            url: "upload.php", // Substitua com o caminho para o script do servidor
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                $("#status").html(response);
-            },
-            error: function(error) {
-                $("#status").html("Erro ao enviar o arquivo.");
-                console.log(error);
-            }
-        });
-    });
 });
