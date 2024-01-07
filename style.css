@@ -150,3 +150,37 @@ body {
     float: right;
     font-weight: bold;
 }
+
+/* Estilo para o input de nome do aluno */
+.student-name {
+    margin-top: 1rem;
+}
+
+.student-name label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.student-name input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--primary);
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    color: var(--primary);
+    box-shadow: rgb(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-bottom: 1rem;
+}
+
+/* Adicione este trecho se desejar que o input de nome tenha o mesmo estilo que o da dropzone-area */
+.student-name input[type="file"] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

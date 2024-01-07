@@ -15,7 +15,7 @@
 <body>
     <form class="dropzone-box" method="POST">
         <h2>Carregar e anexar arquivos</h2>
-        <p>Anexe arquivos a este projeto</p>
+        <p>Anexe o documento do aluno(a) digitalizado em PDF</p>
         <div class="dropzone-area">
             <div class="file-upload-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
@@ -27,6 +27,10 @@
             <p>Clique para fazer upload ou arraste e solte</p>
             <input type="file" accept=".pdf" required id="upload-file" name="uploaded-file">
             <p class="message">Nenhum arquivo selecionado</p>
+        </div>
+        <div class="student-name">
+            <label for="student-name">Nome do Aluno:</label>
+            <input type="text" id="student-name" name="student-name" required>
         </div>
         <div class="dropzone-actions">
             <button type="reset">
