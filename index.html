@@ -75,26 +75,18 @@
                             // Função a ser executada em caso de sucesso na requisição AJAX
 
                             var fileName = file.name;
-                            $(".dropzone-area p").hide();
-                            // Esconde o parágrafo dentro da área de dropzone
+                            // Exibindo as mensagens e redefinindo o input do tipo file após o upload
+                            $(".dropzone-area p").show();
+                            $(".message").text("Nenhum arquivo selecionado").css("color", "");
+                            $("#upload-file").val("");
 
-                            $("#upload-success").text("Arquivo '" + fileName + "' enviado com sucesso!").show();
-                            // Exibe a mensagem de sucesso com o nome do arquivo enviado
-
-                            $("#upload-failed").hide();
-                            // Esconde a mensagem de falha, se estiver visível
+                            // Exibindo um alerta personalizado
+                            showAlert("Upload de arquivo realizado com sucesso!", "success");
                         },
                         error: function (error) {
-                            // Função a ser executada em caso de falha na requisição AJAX
-
-                            $("#upload-failed").text("Erro ao enviar o arquivo.").show();
-                            // Exibe a mensagem de falha
-
-                            $("#upload-success").hide();
-                            // Esconde a mensagem de sucesso, se estiver visível
-
+                            $(".message").html("<strong>Erro:</strong> Por favor, selecione um arquivo PDF.").css("color", "red");
+                            showAlert("Erro ao enviar o arquivo.", "error");
                             console.log(error);
-                            // Registra detalhes do erro no console do navegador
                         },
                     });
                 } else {
@@ -142,6 +134,27 @@
 
                 $("#upload-success, #upload-failed").hide();
                 // Esconde as mensagens de sucesso e falha, se estiverem visíveis
+            });
+
+            function showAlert(message, type) {
+                // Cria e exibe um alerta personalizado
+
+                var alertBox = $("<div>").addClass("custom-alert " + type).text(message);
+                var closeButton = $("<span>").addClass("close-button").text("Fechar");
+
+                alertBox.append(closeButton);
+                $("body").append(alertBox);
+
+                closeButton.click(function () {
+                    alertBox.remove();
+                });
+            }
+
+            $(".dropzone-box").on("reset", function () {
+                $(".dropzone-area p").show();
+                $(".message").text("Nenhum arquivo selecionado").css("color", "");
+                $("#upload-file").val("");
+                $("#upload-success, #upload-failed").hide();
             });
         });
     </script>

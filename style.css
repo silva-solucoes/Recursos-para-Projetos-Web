@@ -123,3 +123,30 @@ body {
     background-color: #192130;
     border: 1px solid var(--primary);
 }
+
+/* Adicionando estilos para o alerta personalizado */
+.custom-alert {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 10px auto; /* Centralizando horizontalmente */
+    border-radius: 5px;
+    position: fixed;
+    top: 50px; /* Ajuste a distância do topo conforme necessário */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 30.5rem; /* Defina a largura máxima desejada */
+    width: 100%;
+    text-align: center;
+    z-index: 1000; /* Defina um valor alto para garantir que o alerta esteja sobre outros elementos */
+}
+
+.custom-alert.error {
+    background-color: #f44336;
+}
+
+.close-button {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+}
