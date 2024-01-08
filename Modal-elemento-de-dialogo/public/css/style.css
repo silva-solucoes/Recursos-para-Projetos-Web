@@ -1,10 +1,10 @@
-*{
+* {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
-:root{
+:root {
     --primary: #323AC0;
     --text: #252728;
     --headline: #1A1E1F;
@@ -15,7 +15,7 @@
     --gray-light: #F3F3F4;
 }
 
-body{
+body {
     font-family: 'Mulish', sans-serif;
     background-color: var(--background);
     display: flex;
@@ -25,7 +25,7 @@ body{
     padding: 1rem;
 }
 
-.share-btn{
+.share-btn {
     border-radius: 50%;
     appearance: none;
     padding: 1rem;
@@ -42,27 +42,27 @@ body{
     border: none;
 }
 
-.share-btn:hover{
+.share-btn:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 6px 12px;
 }
 
-.share-btn svg{
+.share-btn svg {
     stroke: var(--primary);
 }
 
-.close-btn{
+.close-btn {
     background-color: inherit;
     cursor: pointer;
     border: none;
 }
 
-.close-btn svg{
+.close-btn svg {
     stroke: var(--gray-dark);
     height: 1.75rem;
     width: 1.75rem;
 }
 
-.copy-link-dialog{
+.copy-link-dialog {
     border-radius: 0.75rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 89px 24px;
     max-width: 36rem;
@@ -74,7 +74,7 @@ body{
     animation: fadeInAnimation ease-in-out 0.5s forwards;
 }
 
-.copy-link-dialog header{
+.copy-link-dialog header {
     display: flex;
     min-height: 4rem;
     padding: 1.5rem 2rem 0.75rem 2rem;
@@ -83,20 +83,20 @@ body{
     border-bottom: 1px solid var(--gray-light);
 }
 
-.copy-link-dialog header h2{
+.copy-link-dialog header h2 {
     font-size: 1.5rem;
     color: var(--headline);
 }
 
-.copy-link-dialog--fadeout{
+.copy-link-dialog--fadeout {
     animation: fadeOutAnimation ease-in-out 0.5s forwards;
 }
 
-.copy-link-dialog__content{
+.copy-link-dialog__content {
     padding: 2rem;
 }
 
-.copy-link-wrapper{
+.copy-link-wrapper {
     display: flex;
     color: var(--gray-text);
     border-radius: 0.5rem;
@@ -108,7 +108,7 @@ body{
     padding-left: 1.5rem;
 }
 
-.copy-link-wrapper input{
+.copy-link-wrapper input {
     color: var(--gray-text);
     outline: none;
     border: none;
@@ -118,18 +118,18 @@ body{
     font-size: 1.2rem;
 }
 
-.copy-link-wrapper input::selection{
+.copy-link-wrapper input::selection {
     background-color: var(--primary);
     color: var(--white);
 }
 
-.copy-link-dialog h2{
+.copy-link-dialog h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     color: var(--text);
 }
 
-.copy-link-wrapper button{
+.copy-link-wrapper button {
     color: var(--primary);
     white-space: nowrap;
     padding: 0.5rem 1rem;
@@ -145,13 +145,24 @@ body{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 6px;
 }
 
-@keyframes fadeInAnimation{
-    0%{
+@keyframes fadeInAnimation {
+    0% {
         opacity: 0;
         visibility: hidden;
     }
-    100%{
+    100% {
         opacity: 1;
         visibility: visible;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
     }
 }
